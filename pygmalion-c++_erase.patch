@@ -121,3 +121,51 @@ diff -urN Pygmalion-0.4.orig/src/pygmalion.cc Pygmalion-0.4.good/src/pygmalion.c
  
        // fix links in objects
        for(int cnt1=0;cnt1<face.size();cnt1++){
+diff -urN Pygmalion-0.4.orig/src/vertex.cc Pygmalion-0.4.good/src/vertex.cc
+--- Pygmalion-0.4.orig/src/vertex.cc	2003-08-12 14:11:53.000000000 +0200
++++ Pygmalion-0.4.good/src/vertex.cc	2003-08-12 14:12:59.000000000 +0200
+@@ -175,7 +175,7 @@
+   //facePLink.erase(end,facePLink.end());  
+   for(int cnt1=0;cnt1<facePLink.size();cnt1++){
+     if(facePLink[cnt1]==num){
+-      facePLink.erase(&facePLink[cnt1]);
++      facePLink.erase(facePLink.begin()+cnt1);
+       return;
+     }
+   }
+@@ -201,7 +201,7 @@
+ #endif
+   for(int cnt1=0;cnt1<edgePLink.size();cnt1++){
+     if(edgePLink[cnt1]==num){
+-      edgePLink.erase(&edgePLink[cnt1]);
++      edgePLink.erase(edgePLink.begin()+cnt1);
+       return;
+     }
+   }
+diff -urN Pygmalion-0.4.orig/src/edge.cc Pygmalion-0.4.good/src/edge.cc
+--- Pygmalion-0.4.orig/src/edge.cc	2003-08-12 14:13:46.000000000 +0200
++++ Pygmalion-0.4.good/src/edge.cc	2003-08-12 14:14:26.000000000 +0200
+@@ -187,7 +187,7 @@
+   //facePLink.erase(end,facePLink.end());
+   for(int cnt1=0;cnt1<facePLink.size();cnt1++){
+     if(facePLink[cnt1]==num){
+-      facePLink.erase(&facePLink[cnt1]);
++      facePLink.erase(facePLink.begin()+cnt1);
+       return;
+     }
+   }
+diff -urN Pygmalion-0.4.orig/src/mainmenu.fl Pygmalion-0.4.good/src/mainmenu.fl
+--- Pygmalion-0.4.orig/src/mainmenu.fl	2000-06-24 22:24:42.000000000 +0200
++++ Pygmalion-0.4.good/src/mainmenu.fl	2003-08-12 14:21:48.000000000 +0200
+@@ -475,9 +475,9 @@
+   } {
+     code {// called after deleted cameraList,glW
+ // toggle
+-menu.erase(&menu[mainM->size()-toggleIndexOffset-cameraList.size()+num-1]);
++menu.erase(menu.begin()+mainM->size()-toggleIndexOffset-cameraList.size()+num-1);
+ // delete
+-menu.erase(&menu[mainM->size()-deleteIndexOffset-2*cameraList.size()+num-1]);
++menu.erase(menu.begin()+mainM->size()-deleteIndexOffset-2*cameraList.size()+num-1);
+ //RenewViewIndex();} {}
+   }
+   Function {ShowViewIndex(int num)} {open

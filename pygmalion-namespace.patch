@@ -9,3 +9,15 @@ diff -urN Pygmalion-0.4.orig/src/vertex.h Pygmalion-0.4.good/src/vertex.h
  class Edge;
  class Face;
  
+diff -urN Pygmalion-0.4.orig/src/pygmalion.h Pygmalion-0.4.good/src/pygmalion.h
+--- Pygmalion-0.4.orig/src/pygmalion.h	2000-06-11 00:50:45.000000000 +0200
++++ Pygmalion-0.4.good/src/pygmalion.h	2003-08-12 14:18:06.000000000 +0200
+@@ -13,6 +13,8 @@
+ #define DebugOut(a);
+ #endif
+ 
++using namespace std;
++
+ // POV-Ray export type
+ const int TRIANGLE=0;
+ const int SMOOTH_TRIANGLE=1;
