@@ -1,16 +1,24 @@
+# TODO:
+#  - fix Patch8
 Summary:	Multi platform oriented 3DCG environment for mainly POV-Ray
 Summary(pl):	Wieloplatformowe ¶rodowisko 3DCG g³ównie dla POV-Raya
 Name:		pygmalion
 Version:	0.4
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/pygmalion3d/%7EPygmalion-%{version}.tar.gz
 # Source0-md5:	2b0db1f647628288192fadf9b4eacf4c
 Patch0:		%{name}-typos.patch
 Patch1:		%{name}-makefile.patch
-Patch2:		%{name}-c++_erase.patch
+Patch2:		%{name}-fltk_gl.patch
 Patch3:		%{name}-namespace.patch
+Patch4:		%{name}-iostream.patch
+Patch5:		%{name}-sqrt.patch
+Patch6:		%{name}-c++_erase.patch
+Patch7:		%{name}-c++_insert.patch
+# WARNING: this patch is obviously WRONG
+Patch8:		%{name}-c++_push_back.patch
 URL:		http://pygmalion3d.sourceforge.net/
 BuildRequires:	OpenGL-devel
 BuildRequires:	XFree86-devel
@@ -31,6 +39,11 @@ Modeler dla POV-Raya.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
 
 %build
 rm -f missing
