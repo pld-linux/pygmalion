@@ -1,0 +1,11 @@
+diff -urN Pygmalion-0.4.orig/src/vertex.h Pygmalion-0.4.good/src/vertex.h
+--- Pygmalion-0.4.orig/src/vertex.h	2000-04-06 01:53:56.000000000 +0200
++++ Pygmalion-0.4.good/src/vertex.h	2003-08-12 12:13:55.000000000 +0200
+@@ -6,6 +6,7 @@
+ #include <cstdio>
+ #include "vector3d.h"
+ 
++using namespace std;
+ class Edge;
+ class Face;
+ 
