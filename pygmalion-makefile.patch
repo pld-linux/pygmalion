@@ -1,0 +1,12 @@
+diff -urN Pygmalion-0.4.orig/src/Makefile.am Pygmalion-0.4/src/Makefile.am
+--- Pygmalion-0.4.orig/src/Makefile.am	2000-06-23 21:23:49.000000000 +0200
++++ Pygmalion-0.4/src/Makefile.am	2003-08-12 12:04:08.000000000 +0200
+@@ -23,7 +23,7 @@
+ 
+ pygmalion.o : pygmalion.cc pygmalion.h vertex.h \
+ 	edge.h face.h camera.h light.h cameraset.h \
+-	mainmenu.h glWindowUI.h newFile.h
++	mainmenu.h glWindowUI.h newFile.h usersetting.h
+ vector3d.o : vector3d.cc vector3d.h
+ vertex.o : vertex.cc vertex.h vector3d.h
+ edge.o : edge.cc edge.h vertex.h vector3d.h
