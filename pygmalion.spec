@@ -1,12 +1,12 @@
 Summary:	Multi platform oriented 3DCG environment for mainly POV-Ray
 Summary(pl):	Wieloplatformowe ¶rodowisko 3DCG g³ównie dla POV-Raya
 Name:		pygmalion
-Version:	0.4pre2
+Version:	0.4
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/pygmalion3d/Pygmalion-%{version}.tar.gz
-# Source0-md5:	4699189bb5e9bb72fe6601b3c384482e
+Source0:	http://dl.sourceforge.net/pygmalion3d/%7EPygmalion-%{version}.tar.gz
+# Source0-md5:	2b0db1f647628288192fadf9b4eacf4c
 Patch0:		%{name}-typos.patch
 URL:		http://pygmalion3d.sourceforge.net/
 BuildRequires:	OpenGL-devel
