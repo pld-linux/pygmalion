@@ -1,0 +1,27 @@
+diff -urN Pygmalion-0.4.orig/src/glWindow.cc Pygmalion-0.4.good/src/glWindow.cc
+--- Pygmalion-0.4.orig/src/glWindow.cc	2000-05-20 22:49:23.000000000 +0200
++++ Pygmalion-0.4.good/src/glWindow.cc	2003-08-12 14:16:10.000000000 +0200
+@@ -695,9 +695,9 @@
+ GLWindow::Approach(){
+   int x=Fl::event_x();
+   int y=Fl::event_y();
+-  float oldDist=sqrt((xx-viewport[2]/2)*(xx-viewport[2]/2)+
++  float oldDist=sqrt((float)(xx-viewport[2]/2)*(xx-viewport[2]/2)+
+ 		     (yy-viewport[3]/2)*(yy-viewport[3]/2));
+-  float nowDist=sqrt((x-viewport[2]/2)*(x-viewport[2]/2)+
++  float nowDist=sqrt((float)(x-viewport[2]/2)*(x-viewport[2]/2)+
+ 		     (y-viewport[3]/2)*(y-viewport[3]/2));  
+   cameraR*=oldDist/nowDist;
+   CalcCameraPos();
+@@ -746,9 +746,9 @@
+ GLWindow::Zoom(){
+   int x=Fl::event_x();
+   int y=Fl::event_y();
+-  float oldDist=sqrt((xx-viewport[2]/2)*(xx-viewport[2]/2)+
++  float oldDist=sqrt((float)(xx-viewport[2]/2)*(xx-viewport[2]/2)+
+ 		     (yy-viewport[3]/2)*(yy-viewport[3]/2));
+-  float nowDist=sqrt((x-viewport[2]/2)*(x-viewport[2]/2)+
++  float nowDist=sqrt((float)(x-viewport[2]/2)*(x-viewport[2]/2)+
+ 		     (y-viewport[3]/2)*(y-viewport[3]/2));  
+   camera->zoom*=nowDist/oldDist;
+   Reshape();
