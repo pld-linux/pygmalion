@@ -1,0 +1,123 @@
+diff -urN Pygmalion-0.4.orig/src/pygmalion.cc Pygmalion-0.4.good/src/pygmalion.cc
+--- Pygmalion-0.4.orig/src/pygmalion.cc	2003-08-12 12:05:35.000000000 +0200
++++ Pygmalion-0.4.good/src/pygmalion.cc	2003-08-12 13:13:13.000000000 +0200
+@@ -196,7 +196,7 @@
+     int removeNum=vec[cnt1];
+     for(int cnt2=cnt1+1;cnt2<vec.size();cnt2++){
+       if(vec[cnt2]==removeNum){
+-	vec.erase(&vec[cnt2]);
++	vec.erase(vec.begin()+cnt2);
+ 	cnt2--;
+       }
+     }
+@@ -230,12 +230,12 @@
+ void
+ PushOP(int op){
+   DebugOut("PushOP : lastOPIndex==" << lastOPIndex);
+-  stackOP.erase(&stackOP[lastOPIndex+1],stackOP.end());
++  stackOP.erase(stackOP.begin()+lastOPIndex+1,stackOP.end());
+   if(op&uGEOMETRY){
+     DebugOut("geometry : lastGEOOP==" << lastGEOOP);
+-    undoVertex.erase(&undoVertex[lastGEOOP+1],undoVertex.end());
+-    undoEdge.erase(&undoEdge[lastGEOOP+1],undoEdge.end());
+-    undoFace.erase(&undoFace[lastGEOOP+1],undoFace.end());
++    undoVertex.erase(undoVertex.begin()+lastGEOOP+1,undoVertex.end());
++    undoEdge.erase(undoEdge.begin()+lastGEOOP+1,undoEdge.end());
++    undoFace.erase(undoFace.begin()+lastGEOOP+1,undoFace.end());
+     undoVertex.push_back();
+     VectorCopy<Vertex>(vertex,undoVertex.back(),0,subdividedVertex[1]);
+     undoEdge.push_back();
+@@ -246,9 +246,9 @@
+   }
+   if(op&uSELECTION){
+     DebugOut("selection : lastSELOP==" << lastSELOP);
+-    undoSelectV.erase(&undoSelectV[lastSELOP+1],undoSelectV.end());
+-    undoSelectE.erase(&undoSelectE[lastSELOP+1],undoSelectE.end());
+-    undoSelectF.erase(&undoSelectF[lastSELOP+1],undoSelectF.end());
++    undoSelectV.erase(undoSelectV.begin()+lastSELOP+1,undoSelectV.end());
++    undoSelectE.erase(undoSelectE.begin()+lastSELOP+1,undoSelectE.end());
++    undoSelectF.erase(undoSelectF.begin()+lastSELOP+1,undoSelectF.end());
+     undoSelectV.push_back();
+     VectorCopy<int>(selectV,undoSelectV.back(),0,selectV.size());
+     undoSelectE.push_back();
+@@ -561,11 +561,11 @@
+ void
+ DeleteView(int num){
+   // cameraList
+-  cameraList.erase(&cameraList[num]);
++  cameraList.erase(cameraList.begin()+num);
+   // glW
+   glW[num]->hide();
+   delete glW[num];
+-  glW.erase(&glW[num]);
++  glW.erase(glW.begin()+num);
+   for(int cnt1=0;cnt1<glW.size();cnt1++){
+     glW[cnt1]->SetCamera(cnt1,cameraList[cnt1].width,cameraList[cnt1].height);
+   }
+@@ -848,7 +848,7 @@
+     vertex[face[num].vertexLink[cnt1]].UnSetFaceLink(num);
+   }
+ 
+-  face.erase(&(face[num]));
++  face.erase(face.begin()+num);
+   subdividedFace[subdivideLevel+1]--;
+ 
+   // Modify Face order in facePLink of {Edges,Vertices}
+@@ -882,7 +882,7 @@
+   for(int cnt1=0;cnt1<edge[num].vertexLink.size();cnt1++){
+     vertex[edge[num].vertexLink[cnt1]].UnSetEdgeLink(num);
+   }
+-  edge.erase(&(edge[num]));
++  edge.erase(edge.begin()+num);
+   subdividedEdge[subdivideLevel+1]--;
+ 
+   // Modify Edge order in edgeLink,edgePLink of {Faces,Vertices}
+@@ -911,7 +911,7 @@
+     cout << "Strange!!!!!!!!! in RemoveVertex" << endl;
+   }
+ #endif
+-  vertex.erase(&(vertex[num]));
++  vertex.erase(vertex.begin()+num);
+   subdividedVertex[subdivideLevel+1]--;
+ 
+   // Modify Face order in facePLink of Edges
+@@ -1407,20 +1407,20 @@
+     }
+ 
+     // Face
+-    face.erase(&face[subdividedFace[subdivideLevel]],
+-	       &face[subdividedFace[subdivideLevel+1]]);
++    face.erase(face.begin()+subdividedFace[subdivideLevel],
++	       face.begin()+subdividedFace[subdivideLevel+1]);
+     //subdividedFace.pop_back();
+     subdividedFace.erase(subdividedFace.end()-1);
+ 
+     // Edge
+-    edge.erase(&edge[subdividedEdge[subdivideLevel]],
+-	       &edge[subdividedEdge[subdivideLevel+1]]);
++    edge.erase(edge.begin()+subdividedEdge[subdivideLevel],
++	       edge.begin()+subdividedEdge[subdivideLevel+1]);
+     //subdividedEdge.pop_back();
+     subdividedEdge.erase(subdividedEdge.end()-1);
+ 
+     // Vertex
+-    vertex.erase(&vertex[subdividedVertex[subdivideLevel]],
+-		 &vertex[subdividedVertex[subdivideLevel+1]]);
++    vertex.erase(vertex.begin()+subdividedVertex[subdivideLevel],
++		 vertex.begin()+subdividedVertex[subdivideLevel+1]);
+     //subdividedVertex.pop_back();
+     subdividedVertex.erase(subdividedVertex.end()-1);
+ 
+@@ -1487,9 +1487,9 @@
+       nowStatus=sNORMAL;
+ 
+     }else { // subdivideLevel>0 // need no subdivide 
+-      face.erase(&(face[0]),&(face[subdividedFace[1]]));
+-      edge.erase(&(edge[0]),&(edge[subdividedEdge[1]]));
+-      vertex.erase(&(vertex[0]),&(vertex[subdividedVertex[1]]));      
++      face.erase(face.begin(),face.begin()+subdividedFace[1]);
++      edge.erase(edge.begin(),edge.begin()+subdividedEdge[1]);
++      vertex.erase(vertex.begin(),vertex.begin()+subdividedVertex[1]);
+ 
+       // fix links in objects
+       for(int cnt1=0;cnt1<face.size();cnt1++){
