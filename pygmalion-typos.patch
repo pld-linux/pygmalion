@@ -1,14 +1,12 @@
-diff -urN Pygmalion-0.4pre2.org/src/pygmalion.cc Pygmalion-0.4pre2/src/pygmalion.cc
---- Pygmalion-0.4pre2.org/src/pygmalion.cc	Thu Oct 24 23:09:44 2002
-+++ Pygmalion-0.4pre2/src/pygmalion.cc	Thu Oct 24 23:10:04 2002
-@@ -5,8 +5,8 @@
- #include <FL/Fl.H>                      // Main FLTK header file
- #include <FL/fl_ask.H>                  // FLTK convenience functions
- #include <FL/fl_file_chooser.H>         // FLTK file chooser
+diff -urN Pygmalion-0.4.orig/src/pygmalion.cc Pygmalion-0.4/src/pygmalion.cc
+--- Pygmalion-0.4.orig/src/pygmalion.cc	2000-06-24 22:55:31.000000000 +0200
++++ Pygmalion-0.4/src/pygmalion.cc	2003-08-08 21:49:29.000000000 +0200
+@@ -21,7 +21,7 @@
+ #include <FL/Fl_Return_Button.H>
+ #include <FL/Fl_Pixmap.H>
+ #include <FL/Fl_Gl_Window.H>
 -#include <Fl/math.h>
--#include <Fl/filename.h>
 +#include <FL/math.h>
-+#include <FL/filename.h>
  
  #include "vector3d.h"
  #include "vertex.h"
