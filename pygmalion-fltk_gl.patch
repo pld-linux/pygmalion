@@ -1,0 +1,14 @@
+diff -urN Pygmalion-0.4.orig/configure.in Pygmalion-0.4.good/configure.in
+--- Pygmalion-0.4.orig/configure.in	2000-06-23 20:57:33.000000000 +0200
++++ Pygmalion-0.4.good/configure.in	2003-08-12 14:45:02.000000000 +0200
+@@ -126,8 +126,8 @@
+ X_LIBADD="$gluLIB $glLIB $X_LIBADD"
+ 
+ dnl unix,cygwin commonly used
+-AC_CHECK_LIB(fltk, fl_fonts,[X_LIBADD="-lfltk $X_LIBADD"],
+-    [AC_MSG_ERROR([can not found libfltk])],$X_LIBADD)
++AC_CHECK_LIB(fltk_gl, fl_fonts,[X_LIBADD="-lfltk_gl $X_LIBADD"],
++    [AC_MSG_ERROR([can not found libfltk-gl])],$X_LIBADD)
+ 
+ dnl Checks for header files.
+ AC_HEADER_STDC
