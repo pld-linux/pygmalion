@@ -1,0 +1,42 @@
+diff -urN Pygmalion-0.4.orig/src/pygmalion.cc Pygmalion-0.4.good/src/pygmalion.cc
+--- Pygmalion-0.4.orig/src/pygmalion.cc	2003-08-12 13:13:13.000000000 +0200
++++ Pygmalion-0.4.good/src/pygmalion.cc	2003-08-12 14:10:17.000000000 +0200
+@@ -236,11 +236,11 @@
+     undoVertex.erase(undoVertex.begin()+lastGEOOP+1,undoVertex.end());
+     undoEdge.erase(undoEdge.begin()+lastGEOOP+1,undoEdge.end());
+     undoFace.erase(undoFace.begin()+lastGEOOP+1,undoFace.end());
+-    undoVertex.push_back();
++    //undoVertex.push_back();
+     VectorCopy<Vertex>(vertex,undoVertex.back(),0,subdividedVertex[1]);
+-    undoEdge.push_back();
++    //undoEdge.push_back();
+     VectorCopy<Edge>(edge,undoEdge.back(),0,subdividedEdge[1]);
+-    undoFace.push_back();
++    //undoFace.push_back();
+     VectorCopy<Face>(face,undoFace.back(),0,subdividedFace[1]);
+     lastGEOOP++;
+   }
+@@ -249,11 +249,11 @@
+     undoSelectV.erase(undoSelectV.begin()+lastSELOP+1,undoSelectV.end());
+     undoSelectE.erase(undoSelectE.begin()+lastSELOP+1,undoSelectE.end());
+     undoSelectF.erase(undoSelectF.begin()+lastSELOP+1,undoSelectF.end());
+-    undoSelectV.push_back();
++    //undoSelectV.push_back();
+     VectorCopy<int>(selectV,undoSelectV.back(),0,selectV.size());
+-    undoSelectE.push_back();
++    //undoSelectE.push_back();
+     VectorCopy<int>(selectE,undoSelectE.back(),0,selectE.size());
+-    undoSelectF.push_back();
++    //undoSelectF.push_back();
+     VectorCopy<int>(selectF,undoSelectF.back(),0,selectF.size());
+     lastSELOP++;
+   }
+@@ -501,7 +501,7 @@
+     viewFlag.push_back(glW[cnt1]->mainWindow->visible());
+     glW[cnt1]->glWindow->hide();
+   }
+-  glW.push_back();
++  //glW.push_back();
+   glW[cnt] = new GLWindowUI;
+   for(int cnt1=0;cnt1<glW.size();cnt1++){
+     glW[cnt1]->SetCamera(cnt1,cameraList[cnt1].width,cameraList[cnt1].height);
