@@ -1,0 +1,19 @@
+diff -urN Pygmalion-0.4.orig/src/mainmenu.fl Pygmalion-0.4.good/src/mainmenu.fl
+--- Pygmalion-0.4.orig/src/mainmenu.fl	2003-08-12 14:21:48.000000000 +0200
++++ Pygmalion-0.4.good/src/mainmenu.fl	2003-08-12 14:22:54.000000000 +0200
+@@ -461,13 +461,13 @@
+ // delete index
+ int addIndex=menu.size()-deleteIndexOffset-cameraList.size()+1;
+ int delIndex=addIndex;
+-menu.insert(&menu[addIndex],added);
++menu.insert(menu.begin()+addIndex,added);
+ 
+ // toggle index
+ added.flags=FL_MENU_TOGGLE;
+ addIndex=menu.size()-toggleIndexOffset;
+ int toggleIndex=addIndex;
+-menu.insert(&menu[addIndex],added);
++menu.insert(menu.begin()+addIndex,added);
+ 
+ //RenewViewIndex();} {}
+   }
