@@ -1,0 +1,53 @@
+diff -urN Pygmalion-0.4.orig/src/vertex.cc Pygmalion-0.4.good/src/vertex.cc
+--- Pygmalion-0.4.orig/src/vertex.cc	2000-04-06 01:53:56.000000000 +0200
++++ Pygmalion-0.4.good/src/vertex.cc	2003-08-12 14:11:53.000000000 +0200
+@@ -2,6 +2,7 @@
+ #include "face.h"
+ #include <cstdio>
+ #include <FL/gl.h>
++#include <iostream>
+  
+ using namespace std;
+ 
+diff -urN Pygmalion-0.4.orig/src/edge.cc Pygmalion-0.4.good/src/edge.cc
+--- Pygmalion-0.4.orig/src/edge.cc	2000-04-06 01:53:56.000000000 +0200
++++ Pygmalion-0.4.good/src/edge.cc	2003-08-12 14:13:46.000000000 +0200
+@@ -2,6 +2,7 @@
+ #include "face.h"
+ #include <cstdio>
+ #include <FL/gl.h>
++#include <iostream>
+ 
+ using namespace std;
+ extern int vertexOffset;
+diff -urN Pygmalion-0.4.orig/src/face.cc Pygmalion-0.4.good/src/face.cc
+--- Pygmalion-0.4.orig/src/face.cc	2000-04-06 01:53:56.000000000 +0200
++++ Pygmalion-0.4.good/src/face.cc	2003-08-12 14:15:05.000000000 +0200
+@@ -1,6 +1,7 @@
+ #include "face.h"
+ #include <cstdio>
+ #include <FL/gl.h>
++#include <iostream>
+ 
+ using namespace std;
+ extern int vertexOffset;
+diff -urN Pygmalion-0.4.orig/src/glWindow.cc Pygmalion-0.4.good/src/glWindow.cc
+--- Pygmalion-0.4.orig/src/glWindow.cc	2003-08-12 14:16:10.000000000 +0200
++++ Pygmalion-0.4.good/src/glWindow.cc	2003-08-12 14:17:04.000000000 +0200
+@@ -20,6 +20,7 @@
+ #include "light.h"
+ #include "cameraset.h" 
+ #include "mainmenu.h"
++#include <iostream>
+ 
+ 
+ using namespace std;
+diff -urN Pygmalion-0.4.orig/src/light.cc Pygmalion-0.4.good/src/light.cc
+--- Pygmalion-0.4.orig/src/light.cc	2000-04-06 01:53:56.000000000 +0200
++++ Pygmalion-0.4.good/src/light.cc	2003-08-12 14:19:32.000000000 +0200
+@@ -1,4 +1,5 @@
+ #include "light.h"
++#include <iostream>
+ 
+ Light::Light():type(1){
+   sprintf(name,"light\n");
