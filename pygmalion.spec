@@ -1,7 +1,7 @@
 # TODO:
 #  - fix Patch8
 Summary:	Multi platform oriented 3DCG environment for mainly POV-Ray
-Summary(pl):	Wieloplatformowe ∂rodowisko 3DCG g≥Ûwnie dla POV-Raya
+Summary(pl.UTF-8):   Wieloplatformowe ≈õrodowisko 3DCG g≈Ç√≥wnie dla POV-Raya
 Name:		pygmalion
 Version:	0.4
 Release:	0.2
@@ -30,7 +30,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A modeler for POVRAY.
 
-%description -l pl
+%description -l pl.UTF-8
 Modeler dla POV-Raya.
 
 %prep
