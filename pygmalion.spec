@@ -1,7 +1,7 @@
 # TODO:
 #  - fix Patch8
 Summary:	Multi platform oriented 3DCG environment for mainly POV-Ray
-Summary(pl.UTF-8):   Wieloplatformowe środowisko 3DCG głównie dla POV-Raya
+Summary(pl.UTF-8):	Wieloplatformowe środowisko 3DCG głównie dla POV-Raya
 Name:		pygmalion
 Version:	0.4
 Release:	0.2
