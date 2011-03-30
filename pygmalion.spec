@@ -7,7 +7,7 @@ Version:	0.4
 Release:	0.2
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/pygmalion3d/%7EPygmalion-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/pygmalion3d/%7EPygmalion-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 # Source0-md5:	2b0db1f647628288192fadf9b4eacf4c
 Patch0:		%{name}-typos.patch
 Patch1:		%{name}-makefile.patch
